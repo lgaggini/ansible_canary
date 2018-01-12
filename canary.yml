@@ -1,0 +1,14 @@
+- hosts: localhost
+  tasks:
+   - add_host:
+       name: "{{ groups[item] | random }}"
+       groups: canarino
+     when:
+       - item != "ungrouped"
+       - item != "all"
+     with_items: "{{ groups.keys() }}"
+
+- hosts: canarino
+  tasks:
+   - debug:
+       msg: "{{ inventory_hostname }}"

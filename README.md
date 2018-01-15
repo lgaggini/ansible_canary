@@ -6,5 +6,5 @@ ansible_canary is a local ansible playbook to generate an hostgroup [canarino](h
 ```bash
 git clone https://github.com/lgaggini/ansible_canary.git
 cd ansible_canary
-ansible-playbook canarino.yml
+ansible-playbook canary.yml
 ```

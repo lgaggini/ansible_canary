@@ -1,0 +1,13 @@
+- hosts: localhost
+  tasks:
+   - add_host:
+       name: "{{ groups[item] | random }}"
+       groups: canarino
+     when:
+       - item != "ungrouped"
+       - item != "all"
+     with_items: "{{ groups.keys() }}"
+
+   - template:
+       src: ansible-canary-hosts.j2
+       dest: ./ansible-canary-hosts
